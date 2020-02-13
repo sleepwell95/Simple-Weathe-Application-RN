@@ -8,4 +8,4 @@ A Weather app build using
 
 ![ss](https://i.imgur.com/VpAUMVL.gif)
 
-[Demo Link](https://expo.io/@amanhimself/rn-minimalist-weather-app)
+[Demo Link](https://snack.expo.io/@sleepwell19980/simple-weather-app)
