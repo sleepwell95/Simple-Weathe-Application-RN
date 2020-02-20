@@ -1,12 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Animated } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 
 import { DangerZone } from 'expo';
-const { Lottie } = DangerZone;
-
-import { API_KEY } from './utils/WeatherAPIKey';
-
 import Weather from './components/Weather';
+
+
 //TODO: 1 pamoka
 export default class App extends React.Component {
   state = {
@@ -29,21 +27,8 @@ export default class App extends React.Component {
     );
   }
 
-  fetchWeather(lat, lon) {
-    fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=metric`
-    )
-      .then(res => res.json())
-      .then(json => {
-        // console.log(json);
-        this.setState({
-          temperature: json.main.temp,
-          weatherCondition: json.weather[0].main,
-          isLoading: false
-        });
-      });
-  }
 
+// TODO 1 pamoka
   render() {
     const { isLoading, weatherCondition, temperature } = this.state;
     return (

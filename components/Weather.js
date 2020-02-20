@@ -1,3 +1,5 @@
+// TODO: 1 Pamoka, Visas failas
+
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -42,7 +44,7 @@ Weather.propTypes = {
   temperature: PropTypes.number.isRequired,
   weather: PropTypes.string
 };
-
+// TODO 1 pamoka, jeigu spėsim
 const styles = StyleSheet.create({
   weatherContainer: {
     flex: 1
