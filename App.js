@@ -1,3 +1,4 @@
+//Padaryta per 1 pamoką
 import React from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 
@@ -13,7 +14,7 @@ export default class App extends React.Component {
     weatherCondition: null,
     error: null
   };
-    //! 1 pamoka 
+    
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -28,7 +29,7 @@ export default class App extends React.Component {
   }
 
 
-// TODO 1 pamoka
+
   render() {
     const { isLoading, weatherCondition, temperature } = this.state;
     return (
@@ -37,6 +38,8 @@ export default class App extends React.Component {
           <View style={styles.loadingContainer}>
             <Text style={styles.loadingText}>Fetching The Weather</Text>
           </View>
+
+          
         ) : (
           <Weather weather={weatherCondition} temperature={temperature} />
         )}
@@ -44,7 +47,7 @@ export default class App extends React.Component {
     );
   }
 }
-//TODO: 1 Pamoka
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -60,4 +63,3 @@ const styles = StyleSheet.create({
     fontSize: 30
   }
 });
-//! 1 pamoka
