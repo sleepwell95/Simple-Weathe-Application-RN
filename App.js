@@ -1,11 +1,12 @@
-//Padaryta per 1 pamoką
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, Animated } from 'react-native';
 
 import { DangerZone } from 'expo';
+const { Lottie } = DangerZone;
+
+import { API_KEY } from './utils/WeatherAPIKey';
+
 import Weather from './components/Weather';
-
-
 //TODO: 1 pamoka
 export default class App extends React.Component {
   state = {
@@ -14,7 +15,7 @@ export default class App extends React.Component {
     weatherCondition: null,
     error: null
   };
-    
+    //! 1 pamoka 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -28,7 +29,20 @@ export default class App extends React.Component {
     );
   }
 
-
+  fetchWeather(lat, lon) {
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=metric`
+    )
+      .then(res => res.json())
+      .then(json => {
+        // console.log(json);
+        this.setState({
+          temperature: json.main.temp,
+          weatherCondition: json.weather[0].main,
+          isLoading: false
+        });
+      });
+  }
 
   render() {
     const { isLoading, weatherCondition, temperature } = this.state;
@@ -38,8 +52,6 @@ export default class App extends React.Component {
           <View style={styles.loadingContainer}>
             <Text style={styles.loadingText}>Fetching The Weather</Text>
           </View>
-
-          
         ) : (
           <Weather weather={weatherCondition} temperature={temperature} />
         )}
@@ -47,7 +59,7 @@ export default class App extends React.Component {
     );
   }
 }
-
+//TODO: 1 Pamoka
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -63,3 +75,4 @@ const styles = StyleSheet.create({
     fontSize: 30
   }
 });
+//! 1 pamoka
