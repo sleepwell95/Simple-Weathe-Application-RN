@@ -1,3 +1,6 @@
+// Copy it this file from the Repo!!!
+// Too big for a lesson!
+
 export const weatherConditions = {
   Rain: {
     color: '#005BEA',

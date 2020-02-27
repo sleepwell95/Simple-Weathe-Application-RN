@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { weatherConditions } from '../utils/WeatherConditions';
 
+// Finish the Weather.js after API Fetch
 const Weather = ({ weather, temperature }) => {
   if (weather != null) {
     return (
@@ -38,7 +39,7 @@ const Weather = ({ weather, temperature }) => {
     )
   };
 };
-
+// Add style or depends on how much time left, copy it from Repo!!
 Weather.propTypes = {
   temperature: PropTypes.number.isRequired,
   weather: PropTypes.string

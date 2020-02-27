@@ -4,10 +4,12 @@ import { StyleSheet, Text, View, Animated } from 'react-native';
 import { DangerZone } from 'expo';
 const { Lottie } = DangerZone;
 
+// Fetch the key from https://openweathermap.org/api
+// Needs a registration!
 import { API_KEY } from './utils/WeatherAPIKey';
 
 import Weather from './components/Weather';
-//TODO: 1 pamoka
+
 export default class App extends React.Component {
   state = {
     isLoading: true,
@@ -15,7 +17,7 @@ export default class App extends React.Component {
     weatherCondition: null,
     error: null
   };
-    //! 1 pamoka 
+    
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -29,6 +31,8 @@ export default class App extends React.Component {
     );
   }
 
+  // Fetching the Api
+  // Focus attention on the api link!
   fetchWeather(lat, lon) {
     fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=metric`
@@ -59,7 +63,7 @@ export default class App extends React.Component {
     );
   }
 }
-//TODO: 1 Pamoka
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -75,4 +79,3 @@ const styles = StyleSheet.create({
     fontSize: 30
   }
 });
-//! 1 pamoka
